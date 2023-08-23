@@ -1,0 +1,57 @@
+{
+	"compiler": {
+		"version": "0.6.8+commit.0bbfe453"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ACL.sol": "ACLData"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ACL.sol": {
+			"keccak256": "0xff0b57933c5d069845c72dcf704ac9e9cdc015a23b1f42dc5908f7f0d3656eab",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://32aa4ac86dfd66a31b5b75b34d8d96ca482c5bdb5f02978f625a9d4746320c3e",
+				"dweb:/ipfs/QmaZ65jc5HqKwc4pcXgi9tm2itvPh2hy8JyjqEnqocH6EV"
+			]
+		},
+		"contracts/IACLOracle.sol": {
+			"keccak256": "0x5b7f5fed284ec040975d321b7e2a1c620a4abfdd54bb88b7e23217466e6160a9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fb2e118581a3f82c1278a30e2bc7f77c73ab584f531f04704a1c83059e969742",
+				"dweb:/ipfs/QmYTdqEJAhqvQ7hbgrJjGkMG9HpwR6s5mis5rk9oewgfpT"
+			]
+		},
+		"contracts/Initializable.sol": {
+			"keccak256": "0x50f52ebb70ecf8cffcf83b01e20fc14744600ec0b17698267fdaf5ceb6565bbf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f26d44e196e3aa6b3b315905ddc6b7fa5cf0e83552a8af44b8ebd9bdcffd0d21",
+				"dweb:/ipfs/QmRvcimoRnGF6QdmoQbeYJ2iE4HqWsF1E1uyFyWyRYPXu6"
+			]
+		}
+	},
+	"version": 1
+}

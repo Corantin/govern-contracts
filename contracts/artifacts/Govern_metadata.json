@@ -1,0 +1,821 @@
+{
+	"compiler": {
+		"version": "0.6.8+commit.0bbfe453"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_initialExecutor",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "_reference",
+						"type": "string"
+					}
+				],
+				"name": "Deposited",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "ETHDeposited",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "actor",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct ERC3000Data.Action[]",
+						"name": "actions",
+						"type": "tuple[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "memo",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "failureMap",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes[]",
+						"name": "execResults",
+						"type": "bytes[]"
+					}
+				],
+				"name": "Executed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes4",
+						"name": "role",
+						"type": "bytes4"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "actor",
+						"type": "address"
+					}
+				],
+				"name": "Frozen",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes4",
+						"name": "role",
+						"type": "bytes4"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "actor",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "contract IACLOracle",
+						"name": "oracle",
+						"type": "address"
+					}
+				],
+				"name": "Granted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "key",
+						"type": "string"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes4",
+						"name": "sig",
+						"type": "bytes4"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "ReceivedCallback",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes4",
+						"name": "sig",
+						"type": "bytes4"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes4",
+						"name": "magicNumber",
+						"type": "bytes4"
+					}
+				],
+				"name": "RegisteredCallback",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "RegisteredStandard",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes4",
+						"name": "role",
+						"type": "bytes4"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "actor",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					}
+				],
+				"name": "Revoked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "_reference",
+						"type": "string"
+					}
+				],
+				"name": "Withdrawn",
+				"type": "event"
+			},
+			{
+				"stateMutability": "nonpayable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [],
+				"name": "ROOT_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "enum ACLData.BulkOp",
+								"name": "op",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bytes4",
+								"name": "role",
+								"type": "bytes4"
+							},
+							{
+								"internalType": "address",
+								"name": "who",
+								"type": "address"
+							}
+						],
+						"internalType": "struct ACLData.BulkItem[]",
+						"name": "items",
+						"type": "tuple[]"
+					}
+				],
+				"name": "bulk",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_reference",
+						"type": "string"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct ERC3000Data.Action[]",
+						"name": "actions",
+						"type": "tuple[]"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "allowFailuresMap",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "memo",
+						"type": "bytes32"
+					}
+				],
+				"name": "exec",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "",
+						"type": "bytes[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "_role",
+						"type": "bytes4"
+					}
+				],
+				"name": "freeze",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "_role",
+						"type": "bytes4"
+					},
+					{
+						"internalType": "address",
+						"name": "_who",
+						"type": "address"
+					}
+				],
+				"name": "grant",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "_role",
+						"type": "bytes4"
+					},
+					{
+						"internalType": "address",
+						"name": "_who",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IACLOracle",
+						"name": "_oracle",
+						"type": "address"
+					}
+				],
+				"name": "grantWithOracle",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "initBlocks",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_initialExecutor",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "_role",
+						"type": "bytes4"
+					}
+				],
+				"name": "isFrozen",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_hash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_signature",
+						"type": "bytes"
+					}
+				],
+				"name": "isValidSignature",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "_interfaceId",
+						"type": "bytes4"
+					},
+					{
+						"internalType": "bytes4",
+						"name": "_callbackSig",
+						"type": "bytes4"
+					},
+					{
+						"internalType": "bytes4",
+						"name": "_magicNumber",
+						"type": "bytes4"
+					}
+				],
+				"name": "registerStandardAndCallback",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "_role",
+						"type": "bytes4"
+					},
+					{
+						"internalType": "address",
+						"name": "_who",
+						"type": "address"
+					}
+				],
+				"name": "revoke",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "roles",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract ERC1271",
+						"name": "_signatureValidator",
+						"type": "address"
+					}
+				],
+				"name": "setSignatureValidator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "_interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_reference",
+						"type": "string"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Govern.sol": "Govern"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ACL.sol": {
+			"keccak256": "0xff0b57933c5d069845c72dcf704ac9e9cdc015a23b1f42dc5908f7f0d3656eab",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://32aa4ac86dfd66a31b5b75b34d8d96ca482c5bdb5f02978f625a9d4746320c3e",
+				"dweb:/ipfs/QmaZ65jc5HqKwc4pcXgi9tm2itvPh2hy8JyjqEnqocH6EV"
+			]
+		},
+		"contracts/AdaptiveERC165.sol": {
+			"keccak256": "0xe2c3fa38fef8c03f92b3f6107c872c8c80c8fc8f7dd0d3cb3a789751e753f2c9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a94fc44d06d8204d0641fe4dace3834825d6156365d2fd54b1748fcde4651369",
+				"dweb:/ipfs/QmWgsJPdknadxGPNgBenT9m65ZczKmnTbGGykAbjWxJ6LH"
+			]
+		},
+		"contracts/AddressUtils.sol": {
+			"keccak256": "0x25c56a7f0c69e257bca0e5d06ddf1a818f79bd1370d8699397934ad0a84ce967",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://86ba84370de9424382206af0eb47cff33267caefb01a354581e6820bbc09d163",
+				"dweb:/ipfs/QmSGBFH2gBM4ycrFq5CcWzP3WjVEAuuwwb85EjfgMACxWE"
+			]
+		},
+		"contracts/BitmapLib.sol": {
+			"keccak256": "0x76e2e0eafcdb6cd95230fcdd48db48ec2fa51a11f803c6b2b8afc57524664e38",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9a456082590c8a30ffde16cdd2b7d9022ddc574fd14a4c788ccf7a95ab0d9ffe",
+				"dweb:/ipfs/QmU9kbsb8Ej8Heq6uBgFhjtQqXBRjDkGz5a977FjRxzGiP"
+			]
+		},
+		"contracts/ERC1271.sol": {
+			"keccak256": "0xe29ea28980694b6bf0e920b15e47021de8121018176235469df872883801a90e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ff072bf22e000a89b05d8b2a4b093d4c1e54b8414612b11abedffc7174e1b73a",
+				"dweb:/ipfs/QmeVBzWoPrjGs2AZJkAXNdmD6wvgNE2jaE2aeXG92pqpun"
+			]
+		},
+		"contracts/ERC165.sol": {
+			"keccak256": "0x74cd0ab82ececb712d9aba3719ce639fdec78c7f47dfc89e11b44d150e647624",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e9b75eea75d6e9dc613a7495f7fbe35e94b0190fbf83f1da510fd7d6f3e44b06",
+				"dweb:/ipfs/QmYViD5UpNmM2JXGqfVkYVS3NyCVbNZQd9YVTpkGsvowVb"
+			]
+		},
+		"contracts/ERC20.sol": {
+			"keccak256": "0x53eea4087f951b7df7d046ac5c72c282452126367f5f31a95db5572be46a93d2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://63a3035dc22b526bdaafece9ea47f2b1aad38eadcdf29390241b4aa51993ffb6",
+				"dweb:/ipfs/QmehFeBy9ZCDjzVff1zsULnPkrpiYjucMiQ8DDxXpnPHrU"
+			]
+		},
+		"contracts/ERC3000Data.sol": {
+			"keccak256": "0x87ea60c9847b7e4a7dff929d0e7bb6d77993f2b74326335927f9b0c7c6b63b6a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0c746c14c92772f212c88c122ffbb5f6aae4be8bc45218ffa048be3fd5b74132",
+				"dweb:/ipfs/QmTCmKYeAzLtcJYxpwPYwykq191NwdQ7cU6dCWoARAL6gf"
+			]
+		},
+		"contracts/Govern.sol": {
+			"keccak256": "0x5147d193f43fd34f312a6c02f74ccac43fe95ca2b32edca0847d4ab9ea0d45c1",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://99a148986f96642f63a1c0e8b7a8ee09f895d0c7c7ead3a3bbde4d3e92016fe4",
+				"dweb:/ipfs/QmTFXWsX4cAsGb8NcQNopQ3mHZxczotuJNqy9fS5C1XyCW"
+			]
+		},
+		"contracts/IACLOracle.sol": {
+			"keccak256": "0x5b7f5fed284ec040975d321b7e2a1c620a4abfdd54bb88b7e23217466e6160a9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fb2e118581a3f82c1278a30e2bc7f77c73ab584f531f04704a1c83059e969742",
+				"dweb:/ipfs/QmYTdqEJAhqvQ7hbgrJjGkMG9HpwR6s5mis5rk9oewgfpT"
+			]
+		},
+		"contracts/IERC3000.sol": {
+			"keccak256": "0x63434aa74e50d56a4196c819744211b6737a2916a8b14acc3d2d77744a59676d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://06ab8f7537e0caeb190e9ff0e92d242d84e9ab836f03ecba48fcae03f9506ba1",
+				"dweb:/ipfs/QmTbjL3uo64KT9GT9TBf64SbWgS8q2h4mqBwPwbT6dkDAA"
+			]
+		},
+		"contracts/IERC3000Executor.sol": {
+			"keccak256": "0xe124eb06798a1d2457d8e9bad5ae55abd63e6d7d9d4babb7408df67e8e8357b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1b6484ec35e82dd8f81d00aba31fdc91d8f76477ddac1c911a6f17d5860f76a5",
+				"dweb:/ipfs/Qmc4UbeZsYgufwWKDWvv1zpsQKXHcUq3Eusa8suJHuQKCM"
+			]
+		},
+		"contracts/Initializable.sol": {
+			"keccak256": "0x50f52ebb70ecf8cffcf83b01e20fc14744600ec0b17698267fdaf5ceb6565bbf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f26d44e196e3aa6b3b315905ddc6b7fa5cf0e83552a8af44b8ebd9bdcffd0d21",
+				"dweb:/ipfs/QmRvcimoRnGF6QdmoQbeYJ2iE4HqWsF1E1uyFyWyRYPXu6"
+			]
+		},
+		"contracts/SafeERC20.sol": {
+			"keccak256": "0xfacfddad749c03dd7c4a7d01cec09fc0b13d28fabc950384eafd615a7ac6455f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cf4d1cc755449baa7ca170c2a9f1f187da7684ae9d43484591a10bf38373c172",
+				"dweb:/ipfs/QmdHkQf3f1P9bhn413fxD34qGMSqPFnFd2H62EBMLj6Yyu"
+			]
+		}
+	},
+	"version": 1
+}

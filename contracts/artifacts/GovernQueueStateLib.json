@@ -1,0 +1,61 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220989054ffa2fc962c41a82cc9e6efa25cdf0b8e7bf0ce9ca064371605d45d178164736f6c63430006080033",
+			"opcodes": "PUSH1 0x56 PUSH1 0x23 PUSH1 0xB DUP3 DUP3 DUP3 CODECOPY DUP1 MLOAD PUSH1 0x0 BYTE PUSH1 0x73 EQ PUSH1 0x16 JUMPI INVALID JUMPDEST ADDRESS PUSH1 0x0 MSTORE PUSH1 0x73 DUP2 MSTORE8 DUP3 DUP2 RETURN INVALID PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SWAP9 SWAP1 SLOAD SELFDESTRUCT LOG2 0xFC SWAP7 0x2C COINBASE 0xA8 0x2C 0xC9 0xE6 0xEF LOG2 0x5C 0xDF SIGNEXTEND DUP15 PUSH28 0xF0CE9CA064371605D45D178164736F6C634300060800330000000000 ",
+			"sourceMap": "439:746:7:-:0;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24"
+		},
+		"deployedBytecode": {
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220989054ffa2fc962c41a82cc9e6efa25cdf0b8e7bf0ce9ca064371605d45d178164736f6c63430006080033",
+			"opcodes": "PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SWAP9 SWAP1 SLOAD SELFDESTRUCT LOG2 0xFC SWAP7 0x2C COINBASE 0xA8 0x2C 0xC9 0xE6 0xEF LOG2 0x5C 0xDF SIGNEXTEND DUP15 PUSH28 0xF0CE9CA064371605D45D178164736F6C634300060800330000000000 ",
+			"sourceMap": "439:746:7:-:0;;;;;;12:1:-1;9;2:12"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "17200",
+				"executionCost": "97",
+				"totalCost": "17297"
+			},
+			"internal": {
+				"checkAndSetState(struct GovernQueueStateLib.Item storage pointer,enum GovernQueueStateLib.State,enum GovernQueueStateLib.State)": "infinite",
+				"checkState(struct GovernQueueStateLib.Item storage pointer,enum GovernQueueStateLib.State)": "infinite",
+				"setState(struct GovernQueueStateLib.Item storage pointer,enum GovernQueueStateLib.State)": "infinite"
+			}
+		},
+		"methodIdentifiers": {}
+	},
+	"abi": []
+}
